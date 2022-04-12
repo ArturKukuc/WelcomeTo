@@ -21,7 +21,7 @@ public class CardsFactory {
             case BISCARDSNUMBER:
                 return new BisCard(number);
             default:
-                System.out.println("Wrong card type");
+                System.out.println("Wrong card type"); //throw new IllegalArgumentException("Unknown card type.");
                 return card;
         }
     }

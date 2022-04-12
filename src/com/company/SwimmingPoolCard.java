@@ -7,12 +7,12 @@ public class SwimmingPoolCard extends Card {
     }
     @Override
     public void useFeature(Player player) {
-        System.out.println("Wywołanie z klasy abstrakcyjnej");
+        System.out.println("Wywołanie funkcji zagrania karty basenu");
     }
 
     @Override
     public boolean checkIfPlayableByPlayer(Player player) {
-        System.out.println("Wywołanie z klasy abstrakcyjnej");
+        System.out.println("Wywołanie sprawdzenia możliwosci zagrania karty basenu");
         return false;
     }
 
