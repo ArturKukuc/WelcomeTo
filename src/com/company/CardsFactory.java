@@ -1,7 +1,16 @@
 package com.company;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class CardsFactory {
-    public Card getCard(CardType type, int number){
+
+    public CardsFactory(){
+
+    }
+
+    public static Card getCard(CardTypes type, int number){
         Card card = null;
         if(number < 0 || number > GameConstants.MAXCARDNUMBER.value()){
             System.out.println("Card number is invalid");
@@ -25,4 +34,10 @@ public class CardsFactory {
                 return card;
         }
     }
+
+  /* public List<Card> generateCards(){
+        List<Card> generatedCards = new ArrayList<>();
+
+
+   }*/
 }

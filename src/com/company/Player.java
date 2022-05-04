@@ -9,13 +9,13 @@ public class Player {
     private Street mediumStreet;
     private Street longestStreet;
     private int[] questsDone;
-    private int[estateMaxCapacity] investedEstates;
+    //private int[estateMaxCapacity] investedEstates;
     private int swimmingPoolsBuilt;
     private int swappedNumbersCounter;
     private int bisUsedCounter;
         public class Street{
             private boolean[] parks;
-            private final int length;
+            //private final int length;
             private List<Slot> houses;
         }
 
