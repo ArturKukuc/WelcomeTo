@@ -4,6 +4,7 @@ public class SwimmingPoolCard extends Card {
     SwimmingPoolCard(int number){
         super.houseNumber = number;
         super.featureUsed = false; /*Warunek przyznania punktu*/
+
     }
     @Override
     public void useFeature(Player player) {

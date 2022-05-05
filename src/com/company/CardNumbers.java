@@ -11,7 +11,7 @@ public enum CardNumbers {
     private final int houseNumber;
     private final int quantity;
     private static int numberOfCardsInDeck;
-    public static final List<Integer> quantitiesOfCards = new ArrayList<>();
+    public static final List<Integer> cardNumbersPoolShuffled = new ArrayList<>();
 
     CardNumbers(int houseNumber, int quantity) {
         this.houseNumber = houseNumber;
@@ -21,20 +21,19 @@ public enum CardNumbers {
     static {
         for (CardNumbers cardNumber : values()) {
             for (int i = 0; i < cardNumber.quantity; i++)
-                quantitiesOfCards.add(cardNumber.houseNumber);
+                cardNumbersPoolShuffled.add(cardNumber.houseNumber);
         }
-    }
-
-    public static int sum() {
-        for (CardNumbers cardNumber : CardNumbers.values()) {
-            numberOfCardsInDeck += cardNumber.quantity;
-        }
+        Collections.shuffle(cardNumbersPoolShuffled);
+        numberOfCardsInDeck = cardNumbersPoolShuffled.size();
         System.out.println("There are " + numberOfCardsInDeck + " numbers in deck");
-        return numberOfCardsInDeck;
     }
 
     public static void printAvailableCardNumbers() {
-        System.out.println(Arrays.toString(quantitiesOfCards.toArray()));
+        System.out.println(Arrays.toString(cardNumbersPoolShuffled.toArray()));
+    }
+
+    public static int getNumberOfCardsInDeck(){
+        return numberOfCardsInDeck;
     }
 
 }

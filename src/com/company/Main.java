@@ -4,9 +4,11 @@ public class Main {
 
     public static void main(String[] args) {
 	CardNumbers.printAvailableCardNumbers();
-	CardNumbers.sum();
+		System.out.println(CardNumbers.getNumberOfCardsInDeck());
 	CardTypes.printAvailableCardTypes();
-	CardTypes.sum();
-
+		System.out.println(CardTypes.getNumberOfCardsInDeck());
+		System.out.println("---------------------------------------------------------------------");
+	Game game = new Game(2);
+	game.printDeck();
     }
 }

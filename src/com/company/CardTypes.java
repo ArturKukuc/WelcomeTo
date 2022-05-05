@@ -2,36 +2,37 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public enum CardTypes {
     POOLS(9), WORKERSCARD(9), BISCARDSNUMBER(9), PARKSCARD(18), INVESTCARD(18), FENCECARD(18);
 
-    CardTypes(int value) {
-        this.value = value;
+    CardTypes(int quantity) {
+        this.quantity = quantity;
     }
 
-    private final int value;
+    private final int quantity;
+
     private static int numberOfCardsInDeck;
-    public static final List<CardTypes> typesOfCards = new ArrayList<>();
+    public static final List<CardTypes> cardtypesPoolShuffled = new ArrayList<>();
 
-    public static int sum(){
-        for (CardTypes cardType : CardTypes.values()) {
-            numberOfCardsInDeck += cardType.value;
-        }
-        System.out.println("There are " +  numberOfCardsInDeck + " card types in deck");
-        return numberOfCardsInDeck;
-    }
-
-    static{
+    static {
+        System.out.println("Adding in progress....");
         for (CardTypes cardType : values()){
-            for (int i = 0; i < cardType.value; i++)
-                typesOfCards.add(cardType);
+            for (int i = 0; i < cardType.quantity; i++)
+                cardtypesPoolShuffled.add(cardType);
         }
+        Collections.shuffle(cardtypesPoolShuffled);
+        numberOfCardsInDeck = cardtypesPoolShuffled.size();
+        System.out.println("There are " + numberOfCardsInDeck + " card types in deck");
     }
 
     public static void printAvailableCardTypes(){
-        System.out.println(Arrays.toString(typesOfCards.toArray()));
+        System.out.println(Arrays.toString(cardtypesPoolShuffled.toArray()));
     }
 
+    public static int getNumberOfCardsInDeck(){
+        return numberOfCardsInDeck;
+    }
 }
