@@ -23,6 +23,7 @@ public enum CardNumbers {
             for (int i = 0; i < cardNumber.quantity; i++)
                 cardNumbersPoolShuffled.add(cardNumber.houseNumber);
         }
+        cardNumbersPoolShuffled.set(5, 25);
         Collections.shuffle(cardNumbersPoolShuffled);
         numberOfCardsInDeck = cardNumbersPoolShuffled.size();
         System.out.println("There are " + numberOfCardsInDeck + " numbers in deck");

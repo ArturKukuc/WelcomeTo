@@ -10,11 +10,10 @@ public class CardsFactory {
 
     }
 
-    public static Card getCard(CardTypes type, int number){
+    public static Card getCard(CardTypes type, int number) throws IllegalCardException{
         Card card = null;
         if(number < 0 || number > GameConstants.MAXCARDNUMBER.value()){
-            System.out.println("Card number is invalid");
-            return card;
+            throw new InvalidCardNumberException("House number out of playable range");
         }
         switch (type){
             case POOLS:
@@ -30,8 +29,8 @@ public class CardsFactory {
             case BISCARDSNUMBER:
                 return new BisCard(number);
             default:
-                System.out.println("Wrong card type"); //throw new IllegalArgumentException("Unknown card type.");
-                return card;
+                throw new NonExistingCardTypeException("Card type not included in available types");
+              //  System.out.println("Wrong card type"); //throw new IllegalArgumentException("Unknown card type.");
         }
     }
 
